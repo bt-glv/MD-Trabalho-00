@@ -12,28 +12,29 @@ return true
 
 
 const check_if_integer_array = () => {
-
-
+// To be added
+// So far, i wasn't able to find a way to use arrays or lists as parameters for javascript functions 
 }
 
 
 
 const calc_congruency_mk1 = (el0, el1, x) => {
 
-    const d1 = el0 / x 
-    const d2 = el1 / x 
+    const d1 = el0 % x 
+    const d2 = el1 % x
 
 
     if(d1 == d2){
 
         return {
-            el0_c: `${el0} / ${x} = ${d1}`,
+            el0_c: `${el0} % ${x} = ${d1}`,
                 el0_r: `${d1}`,
 
-                el1_c: `${el1} / ${x} = ${d2}`,
+                el1_c: `${el1} % ${x} = ${d2}`,
                 el1_r: `${d2}`,
                 
-                m: `${d1} = ${d2}`
+                m: `${d1} = ${d2}`,
+                r: true
             }
 
     } 
@@ -46,7 +47,8 @@ const calc_congruency_mk1 = (el0, el1, x) => {
             el1_c: `${el1} / ${x} = ${d2}`,
             el1_r: `${d2}`,
         
-            m: `${d1} ≠ ${d2}`
+            m: `${d1} ≠ ${d2}`,
+            r: false
             }
 
     }
