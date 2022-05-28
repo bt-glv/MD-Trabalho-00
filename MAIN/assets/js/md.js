@@ -13,7 +13,7 @@ return true
 
 const check_if_integer_array = () => {
 // To be added
-// So far, i wasn't able to find a way to use arrays or lists as parameters for javascript functions 
+// So far, i wasn't able to find a way to use arrays or lists as parameters for any sort of javascript function 
 }
 
 
