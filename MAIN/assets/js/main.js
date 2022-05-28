@@ -7,6 +7,10 @@
 (function() {
   "use strict";
 
+
+
+
+  
   /**
    * Easy selector helper function
    */
@@ -18,6 +22,10 @@
       return document.querySelector(el)
     }
   }
+
+
+
+
 
   /**
    * Easy event listener function
@@ -33,12 +41,20 @@
     }
   }
 
+
+
+
+
   /**
    * Easy on scroll event listener 
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
   }
+
+
+
+
 
   /**
    * Navbar links active state on scroll
@@ -60,6 +76,9 @@
   window.addEventListener('load', navbarlinksActive)
   onscroll(document, navbarlinksActive)
 
+
+
+
   /**
    * Scrolls to an element with header offset
    */
@@ -70,6 +89,9 @@
       behavior: 'smooth'
     })
   }
+
+
+
 
   /**
    * Back to top button
@@ -87,6 +109,10 @@
     onscroll(document, toggleBacktotop)
   }
 
+
+
+
+
   /**
    * Mobile nav toggle
    */
@@ -95,6 +121,10 @@
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
   })
+
+
+
+
 
   /**
    * Scrool with ofset on links with a class name .scrollto
@@ -114,6 +144,11 @@
     }
   }, true)
 
+
+
+
+
+
   /**
    * Scroll with ofset on page load with hash links in the url
    */
@@ -124,6 +159,11 @@
       }
     }
   });
+
+
+
+
+
 
   /**
    * Hero type effect
@@ -141,6 +181,11 @@
     });
   }
 
+
+
+
+
+
   /**
    * Skills animation
    */
@@ -157,6 +202,10 @@
       }
     })
   }
+
+
+
+
 
   /**
    * Porfolio isotope and filter
@@ -188,12 +237,22 @@
 
   });
 
+
+
+
+
+
   /**
    * Initiate portfolio lightbox 
    */
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
   });
+
+
+
+
+
 
   /**
    * Portfolio details slider
@@ -211,6 +270,11 @@
       clickable: true
     }
   });
+
+
+
+
+
 
   /**
    * Testimonials slider
@@ -240,6 +304,12 @@
       }
     }
   });
+
+
+
+
+
+
 
   /**
    * Animation on scroll
