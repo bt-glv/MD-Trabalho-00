@@ -109,23 +109,16 @@ const congruency_main = (i_n1,i_n2,i_mod, answer_main, answer_calc1, answer_calc
 }
 
 
-
-
-
-
-
 //
 //  inner-page - related
 //
 
 
-// todo: make a function to clear the results-page list
 const result_clearList = (listID = "result-dt") => {
     document.getElementById(listID).innerHTML = " "
 }
 
 
-// todo: make a function to add all of the results to the result-page list
 const result_addToList = (res, listID = "result-dt")=>{
 
     list = document.getElementById(listID)
