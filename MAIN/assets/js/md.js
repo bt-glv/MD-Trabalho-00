@@ -1,3 +1,18 @@
+window.onload = () => { 
+    
+    document.getElementById("n1").value = " " 
+    document.getElementById("n2").value = " "
+    document.getElementById("mod").value = " "
+
+
+}
+
+
+//
+//  Congruency calculator - related
+//
+
+
 const input_validate = ( el = "") => {
 
     // Check if 'el' is an integer
@@ -16,13 +31,8 @@ return true
 }
 
 
-const input_validate_array = () => {
-// So far, i wasn't able to find a way to use arrays or lists as parameters for any sort of javascript function 
-}
 
-
-
-const calc_congruency_mk1 = (el0, el1, x) => {
+const congruency_calc = (el0, el1, x) => {
 
     const d1 = el0 % x 
     const d2 = el1 % x
@@ -31,13 +41,15 @@ const calc_congruency_mk1 = (el0, el1, x) => {
     if(d1 == d2){
 
         return {
-                el0_c: `${el0} % ${x} = ${d1}`,
-                el0_r: `${d1}`,
 
+                'mod': x,
+                'el0': el0,
+                'el1': el1,
+
+                el0_c: `${el0} % ${x} = ${d1}`,
                 el1_c: `${el1} % ${x} = ${d2}`,
-                el1_r: `${d2}`,
-                
                 m: `${d1} = ${d2}`,
+                
                 r: true
             }
 
@@ -45,13 +57,15 @@ const calc_congruency_mk1 = (el0, el1, x) => {
     else {
 
         return {
-            el0_c: `${el0} % ${x} = ${d1}`,
-            el0_r: `${d1}`,
 
+            'mod': x,
+            'el0': el0,
+            'el1': el1,
+
+            el0_c: `${el0} % ${x} = ${d1}`,
             el1_c: `${el1} % ${x} = ${d2}`,
-            el1_r: `${d2}`,
-        
             m: `${d1} ≠ ${d2}`,
+            
             r: false
             }
 
@@ -70,7 +84,7 @@ const congruency_main = (i_n1,i_n2,i_mod, answer_main, answer_calc1, answer_calc
     
     if((input_validate(n1)) * (input_validate(n2)) * (input_validate(mod))){
 
-        const res = calc_congruency_mk1(n1,n2,mod)
+        const res = congruency_calc(n1,n2,mod)
 
         
         if(res.r){document.getElementById(answer_main).innerHTML = "Congruênte" }  
@@ -84,8 +98,8 @@ const congruency_main = (i_n1,i_n2,i_mod, answer_main, answer_calc1, answer_calc
 
     }else{
 
-        // todo: alert message here
-        // todos os números devem ser inteiros, positivos e diferentes de 0
+        // alert('Todos os números devem ser diferentes de 0, inteiros e positivos.')
+        // Add a better alert here (boostrap alert)
     }
     
     
@@ -95,26 +109,32 @@ const congruency_main = (i_n1,i_n2,i_mod, answer_main, answer_calc1, answer_calc
 }
 
 
+
+
+
+
+
 //
-//  Results inner-page
+//  inner-page - related
 //
 
 
 // todo: make a function to clear the results-page list
-const result_clearList = (listID = "result_list") => {
-
-    
-    
-    list = document.getElementById(listID)
-    
-
+const result_clearList = (listID = "result-dt") => {
+    document.getElementById(listID).innerHTML = " "
 }
 
 
 // todo: make a function to add all of the results to the result-page list
-const result_addToList = (results)=>{
+const result_addToList = (res, listID = "result-dt")=>{
 
-    console.log(`function not finished. It recieved:\n ${results}`)
+    list = document.getElementById(listID)
+
+    const new_element = document.createElement('dt')
+    new_element.innerHTML = `${res.el0} ≡ ${res.el0} mod ${res.el0}: ${(res.r)?"Congruênte":"Incongruente"}`
+    
+    list.appendChild(new_element)
+
 
 }
 
