@@ -1,8 +1,8 @@
 window.onload = () => { 
     
-    document.getElementById("n1").value = " " 
-    document.getElementById("n2").value = " "
-    document.getElementById("mod").value = " "
+    document.getElementById("n1").value = "" 
+    document.getElementById("n2").value = ""
+    document.getElementById("mod").value = ""
 
 
 }
@@ -13,16 +13,33 @@ window.onload = () => {
 //
 
 
-const input_keepInteger = (value="") => {
+const input_keepInteger = (value="", negative_values=true) => {
 
 
-    const b = value.match('(^[0]$)|(^-[0]$)')
-    if(b!=null){return ""}else{
+    if(negative_values){
 
-        const a = value.match('(^[-]$)|(^([-][0-9]+)$)|(^([0-9]+)$)')
-        if(a==null){return ""}else{return value}
+        const b = value.match('(^[0]$)|(^-[0]$)')
+        if(b!=null){return ""}else{
+    
+            const a = value.match('(^[-]$)|(^([-][0-9]+)$)|(^([0-9]+)$)')
+            if(a==null){return ""}else{return value}
+    
+        }
+
+    } else{
+
+        const b = value.match('(^[0]$)')
+        if(b!=null){return ""}else{
+    
+            const a = value.match('(^([0-9]+)$)')
+            if(a==null){return ""}else{return value}
+    
+        }
+    
 
     }
+
+
 
     
 }
@@ -31,7 +48,25 @@ const input_keepInteger = (value="") => {
 
 // Input_keepInteger was a later addition. Originally, all of the validation was made via the method below.
 // Either of those functions could do the job by themselves. I kept both of them just to be completely sure.
-const input_validate = ( el = "") => {
+const input_validate = ( el = "", negative_values=true) => {
+
+
+    if(!negative_values){
+
+        // Check if 'el' is an integer
+        var a = el.match('((^[0-9]+)$)')
+        if(a == null){return false}
+
+        // Check if the value is not made out just of 0
+        var a = el.match('((^[0]))')
+        if(a != null){return false}
+        
+        // Check if there are any new lines or spaces in 'el'
+        a = el.match("\n|[ ]")
+        if(a != null){return false}
+
+    }
+
 
     // Check if 'el' is an integer
     var a = el.match('((^[0-9]+)$)|((^-[0-9]+)$)')
