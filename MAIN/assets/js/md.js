@@ -13,6 +13,24 @@ window.onload = () => {
 //
 
 
+const input_keepInteger = (value="") => {
+
+
+    const b = value.match('(^[0]$)|(^-[0]$)')
+    if(b!=null){return ""}else{
+
+        const a = value.match('(^[-]$)|(^([-][0-9]+)$)|(^([0-9]+)$)')
+        if(a==null){return ""}else{return value}
+
+    }
+
+    
+}
+
+
+
+// Input_keepInteger was a later addition. Originally, all of the validation was made via the method below.
+// Either of those functions could do the job by themselves. I kept both of them just to be completely sure.
 const input_validate = ( el = "") => {
 
     // Check if 'el' is an integer
@@ -75,6 +93,34 @@ const congruency_calc = (el0, el1, x) => {
 }
 
 
+//
+//  List - related
+//
+
+
+const result_clearList = (listID = "result-dt") => {
+    document.getElementById(listID).innerHTML = " "
+}
+
+
+const result_addToList = (res, listID = "result-dt")=>{
+
+    list = document.getElementById(listID)
+
+    const new_element = document.createElement('dt')
+    new_element.innerHTML = `${res.el0} ≡ ${res.el1} mod ${res.mod}: ${(res.r)?"Congruênte":"Incongruente"}`
+    
+    list.appendChild(new_element)
+
+
+}
+
+
+
+
+
+
+
 
 const congruency_main = (i_n1,i_n2,i_mod, answer_main, answer_calc1, answer_calc2) => {
 
@@ -109,27 +155,6 @@ const congruency_main = (i_n1,i_n2,i_mod, answer_main, answer_calc1, answer_calc
 }
 
 
-//
-//  inner-page - related
-//
-
-
-const result_clearList = (listID = "result-dt") => {
-    document.getElementById(listID).innerHTML = " "
-}
-
-
-const result_addToList = (res, listID = "result-dt")=>{
-
-    list = document.getElementById(listID)
-
-    const new_element = document.createElement('dt')
-    new_element.innerHTML = `${res.el0} ≡ ${res.el0} mod ${res.el0}: ${(res.r)?"Congruênte":"Incongruente"}`
-    
-    list.appendChild(new_element)
-
-
-}
 
 
 

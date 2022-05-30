@@ -128,24 +128,30 @@
 
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" style="margin-bottom: 40px;">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="" method="" role="form" class="php-email-form">
               <div class="row">
+
                 <div class="form-group">
                   <label for="name">Primeiro valor</label>
-                  <input  type="number"   name="name" class="form-control" id="n1"   required>
+                  <input  type="text"   name="name" class="form-control" id="n1" oninput="this.value = input_keepInteger(this.value);"   required>
                 </div>
+
               </div>
 
               <!-- oninput="this.value = this.value.replace(/[^0-9.-]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');""  -->
 
               <div class="form-group">
                 <label for="name">Segundo valor</label>
-                <input type="number"   class="form-control" name="subject" id="n2"  required>
+                <input type="text"   class="form-control" name="subject" id="n2" oninput="this.value = input_keepInteger(this.value);" required>
               </div>
+
+
               <div class="form-group">
                 <label for="name">Módulo</label>
-                <input type="number"   class="form-control" name="subject" id="mod"  required>
+                <input type="text"   class="form-control" name="subject" id="mod" oninput="this.value = input_keepInteger(this.value);" required>
               </div>
+
+
               <div class="text-center"><button type="submit" onclick="congruency_main('n1','n2','mod','answer_main', 'answer_calc1', 'answer_calc2')">Calcular</button></div>
             </form>
           </div>
