@@ -16,11 +16,11 @@ window.onload = () => {
 const input_validate = ( el = "") => {
 
     // Check if 'el' is an integer
-    var a = el.match('(^[0-9]+)$')
+    var a = el.match('((^[0-9]+)$)|((^-[0-9]+)$)')
     if(a == null){return false}
 
     // Check if the value is not made out just of 0
-    var a = el.match('(^[0]+)$')
+    var a = el.match('((^[0]))|((^-[0]))')
     if(a != null){return false}
     
     // Check if there are any new lines or spaces in 'el'
@@ -98,7 +98,7 @@ const congruency_main = (i_n1,i_n2,i_mod, answer_main, answer_calc1, answer_calc
 
     }else{
 
-        // alert('Todos os números devem ser diferentes de 0, inteiros e positivos.')
+        //alert('Todos os números devem ser diferentes de 0, inteiros e positivos.')
         // Add a better alert here (boostrap alert)
     }
     
